@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AisleMate - Smart Grocery Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #e1e1e1;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #007AFF;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        nav button.active {
+            background-color: #007AFF;
+            color: white;
+        }
+
+        nav button:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+            color: #007AFF;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #007AFF;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .email-link {
+            color: #007AFF;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #e1e1e1;
+            margin-top: 60px;
+            color: #666;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 30px 0;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1.1em;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            nav button {
+                width: 200px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .contact-info {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            nav button {
+                width: 160px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">AisleMate</div>
+            <div class="tagline">Smart Grocery Assistant for iOS</div>
+            <nav>
+                <button id="privacy-btn" class="active" onclick="showSection('privacy')">Privacy Policy</button>
+                <button id="support-btn" onclick="showSection('support')">Support</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Privacy Policy Section -->
+            <section id="privacy" class="content-section active">
+                <h1>Privacy Policy</h1>
+                <p><strong>Effective Date:</strong> January 2025</p>
+
+                <h2>Information We Collect</h2>
+                <p>AisleMate is designed with privacy as a core principle. We do not collect, store, or transmit any personal data to our servers.</p>
+
+                <h2>Data Usage</h2>
+                <p>AisleMate accesses the following data exclusively on your device:</p>
+                <ul>
+                    <li><strong>Reminders Access:</strong> To read and update your grocery lists with aisle information</li>
+                    <li><strong>Location Services:</strong> When enabled, used only for finding nearby grocery stores</li>
+                </ul>
+
+                <h2>Data Storage</h2>
+                <p>All your data remains exclusively on your device:</p>
+                <ul>
+                    <li>Store information and aisle mappings are stored locally using iOS's secure storage</li>
+                    <li>No data is transmitted to external servers</li>
+                    <li>No cloud storage or backups are performed by our app</li>
+                </ul>
+
+                <h2>Data Sharing</h2>
+                <p>We do not share, sell, or transmit any of your data to third parties. Period.</p>
+
+                <h2>Location Services</h2>
+                <p>When you enable location services:</p>
+                <ul>
+                    <li>Your location is used only to search for nearby grocery stores</li>
+                    <li>Location data is not stored or transmitted anywhere</li>
+                    <li>You can disable location access at any time in iOS Settings</li>
+                </ul>
+
+                <h2>Children's Privacy</h2>
+                <p>AisleMate is safe for all ages. We do not knowingly collect any information from users under 13 years of age.</p>
+
+                <h2>Changes to This Policy</h2>
+                <p>If we update this privacy policy, we will notify users through the App Store update notes.</p>
+
+                <h2>Contact Us</h2>
+                <p>If you have questions about this privacy policy, please contact us using the support information provided.</p>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="content-section">
+                <h1>Support</h1>
+                
+                <h2>Getting Started</h2>
+                <p>AisleMate enhances your iOS Reminders app with intelligent aisle organization. Here's how to get started:</p>
+                <ul>
+                    <li>Grant access to Reminders when prompted</li>
+                    <li>Select your grocery list from your existing Reminders</li>
+                    <li>Choose your store or search for a new one</li>
+                    <li>Start assigning aisles as you shop - AisleMate learns and remembers!</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+                
+                <p><strong>Q: Do I need to create a new grocery list?</strong></p>
+                <p>A: No! AisleMate works with your existing Reminders lists. Just select which list contains your grocery items.</p>
+
+                <p><strong>Q: Will this interfere with my current Reminders workflow?</strong></p>
+                <p>A: Not at all. AisleMate enhances your lists by adding aisle information. You can continue using Reminders exactly as before.</p>
+
+                <p><strong>Q: Does AisleMate work offline?</strong></p>
+                <p>A: Yes! Once you've set up your stores and aisle mappings, everything works offline.</p>
+
+                <p><strong>Q: Can I use AisleMate with multiple stores?</strong></p>
+                <p>A: Absolutely! AisleMate remembers aisle locations for each store you visit.</p>
+
+                <p><strong>Q: Why isn't location working?</strong></p>
+                <p>A: Check that Location Services is enabled for AisleMate in iOS Settings > Privacy & Security > Location Services.</p>
+
+                <div class="contact-info">
+                    <h3>Need More Help?</h3>
+                    <p>Contact us for support:</p>
+                    <a href="mailto:support@aislemate.app" class="email-link">support@aislemate.app</a>
+                    <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                        We typically respond within 24 hours
+                    </p>
+                </div>
+
+                <h2>System Requirements</h2>
+                <ul>
+                    <li>iOS 18.0 or later</li>
+                    <li>Access to Reminders app</li>
+                    <li>Optional: Location Services for store search</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 AisleMate. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 14px;">
+                Made with ❤️ for smarter grocery shopping
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(s => s.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(section).classList.add('active');
+            document.getElementById(section + '-btn').classList.add('active');
+        }
+    </script>
+</body>
+</html>
