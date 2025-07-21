@@ -312,20 +312,38 @@
         </footer>
     </div>
 
-    <script>
-        function showSection(section) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(s => s.classList.remove('active'));
-            
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(b => b.classList.remove('active'));
-            
-            // Show selected section
-            document.getElementById(section).classList.add('active');
-            document.getElementById(section + '-btn').classList.add('active');
+<script>
+    function showSection(section) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(s => s.classList.remove('active'));
+        
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll('nav button');
+        buttons.forEach(b => b.classList.remove('active'));
+        
+        // Show selected section
+        document.getElementById(section).classList.add('active');
+        document.getElementById(section + '-btn').classList.add('active');
+    }
+
+    // Check URL hash on page load
+    function initializePage() {
+        const hash = window.location.hash.substring(1); // Remove the # symbol
+        
+        if (hash === 'support' || hash === 'privacy') {
+            showSection(hash);
+        } else {
+            // Default to privacy if no valid hash
+            showSection('privacy');
         }
-    </script>
+    }
+
+    // Initialize page when DOM loads
+    document.addEventListener('DOMContentLoaded', initializePage);
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('hashchange', initializePage);
+</script>
 </body>
 </html>
